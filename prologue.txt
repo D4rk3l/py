@@ -1,0 +1,27 @@
+#Prologue
+print("This game is a text-based adventure.\n")
+time.sleep(2)
+print("Your actions actually have consequences.\n")
+time.sleep(2)
+print("To pick options, type the word.\n")
+time.sleep(2)
+
+
+options = input("Continue?\nYes    No\n")
+
+if options.upper() == "no":
+    exit(0)
+    
+time.sleep(2)
+print("\n\n\n")
+
+
+print("You wake up in a bed, not knowing where or who you are...\n")
+time.sleep(2.5)
+print("But then you remember where and who you are. \nYou're in your house, and your name is Ethan.")
+time.sleep(3)
+print("You're just a slow thinker.\n")
+time.sleep(2)
+print("What should you do?\n")
+
+
