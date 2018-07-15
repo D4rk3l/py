@@ -3,7 +3,7 @@ print("This game is a text-based adventure.\n")
 time.sleep(2)
 print("Your actions actually have consequences.\n")
 time.sleep(2)
-print("To pick options, type the word.\n")
+print("To pick options, type the word. Ignore parantheses.\n")
 time.sleep(2)
 
 

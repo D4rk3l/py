@@ -1,6 +1,7 @@
 import time
 import sys
 import random
+
 def printOut(m):
     l = list(m)
     for i in range(0,len(l)):
@@ -9,6 +10,31 @@ def printOut(m):
     print()
 
 
+#Prologue
+printOut("This game is a text-based adventure.\n")
+time.sleep(2)
+printOut("Your actions actually have consequences.\n")
+time.sleep(2)
+printOut("To pick options, type the word. Ignore parantheses.\n")
+time.sleep(2)
+
+
+options = input("Continue?\nYes    No\n")
+
+if options.upper() == "no":
+    exit(0)
+    
+time.sleep(2)
+print("\n\n\n")
+
+
+printOut("You wake up in a bed, not knowing where or who you are...\n")
+time.sleep(2.5)
+printOut("But then you remember where and who you are. \nYou're in your house, and your name is Ethan.")
+time.sleep(3)
+printOut("You're just a slow thinker.\n")
+time.sleep(2)
+printOut("What should you do?\n")
 
 
 
@@ -27,7 +53,8 @@ def house():
         printOut("\nHow will you get down?\nSteps    Railing    Window")
         options = input()
         if options.upper() == "STEPS":
-            printOut("You walk down the stairs.")        
+            printOut("\nYou walk down the stairs.")
+            break
         elif options.upper() == "RAILING":
             printOut("You slide down the railing. Why not have a little fun?")
             time.sleep(0.8)
@@ -58,6 +85,8 @@ def house():
                     printOut("Whatever.")
                     time.sleep(0.7)
                     printOut("You enter the house from the back door, because you always forget to lock it.")
+                    time.sleep(1)
+                    break
                     
                 elif randomChance < 6:
                     printOut("\nYou fail the dive, ending up with a lot of cuts on your skin from the broken glass.")
@@ -66,6 +95,8 @@ def house():
                     time.sleep(1.5)
                     cuts = 1
                     printOut("You enter the house from the back door, because you always forget to lock it.")
+                    time.sleep(1)
+                    break
                     
             if options.upper() == "CLIMB":
                 printOut("\nYou walk up to the window, release the lock, and open it.")
@@ -75,16 +106,87 @@ def house():
                 
                 if randomChance >= 4:
                     printOut("You safely climb down.")
-                    time.sleep(1)
+                    time.sleep(0.7)
                     printOut("You enter the house from the back door, because you always forget to lock it.")
+                    time.sleep(1)
+                    break
                     
                 if randomChance < 4:
                     printOut("You slip and twist your ankle from the fall.")
                     time.sleep(1.2)
                     ankle = 1
                     printOut("You hobble into the house from the back door, because you always forget to lock it.")
+                    time.sleep(1)
+                    break
+    
                     
-                
+def kitchen():
+    randomChance = random.randint(0,10)
+    pan = 0
+    stove = 0
+    inKitchen = 1
+    egg = 0
+    while inKitchen == 1:
+        printOut("You enter the kitchen. What should you eat? Pick one:\nEgg  -  Bacon  -  Toast  -  Cereal")
+        options = input()
+        
+     
+        if options.upper() == "EGG":
+            makeEggs = 1
+            while makeEggs == 1:
+                printOut("You want to make an egg. What do you need to do before cooking it?\nEgg  -  Stove (Electrical)  -  Pan  -  Oil")
+                options = input()
+         
+                if options.upper() == "PAN":
+             
+                    if pan == 1:
+                        printOut("You take the pan off of the stove.")
+                        pan = 0
+                 
+                    elif pan == 0:
+                        printOut("You place the pan on the stove.")
+                        pan = 1
+
+                        
+                elif options.upper() == "STOVE":
+                    
+                    if stove == 1:
+                        printOut("You turn the stove off")
+                        stove = 0
+                        
+                    elif stove == 0:
+                        printOut("You turn the stove on")
+                        stove = 1
+                                                
+                elif options.upper() == "EGG":
+                    
+                    if egg == 1 or egg == -1:
+
+                        printOut("Pour the egg?\nYes  -   No")
+                        options = input()
+                        
+                        if options.upper() == "NO":
+                            printOut("Right, you haven't put the pan on yet!")
+                            
+                        elif options.upper() == "YES":
+                            printOut("You pour the egg on the stove. It seeps through the burner. Your egg is now ruined.")
+                            makeEggs = 0
+                            
+                    elif egg == 0:
+                        printOut("You attempt to crack the egg and pour it into a bowl...")
+                        time.sleep(1)
+                        if randomChance >= 5:
+                            printOut("You succesfully crack the egg.")
+                            time.sleep(0.5)
+                            egg = 1
+                        elif randomChance < 5:
+                            printOut("You apply way too much force and slam the egg into the bowl.\nThere is now a bunch of egg shell mixed in with your egg.")
+                            time.sleep(1.4)
+                            egg = -1
+
+            
+
+             
 
                             
                 
@@ -233,6 +335,4 @@ def bedroom():    # Bedroom
 
 
 
-bedroom()
-house()
-
+kitchen()
