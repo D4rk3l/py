@@ -11,11 +11,11 @@ def printOut(m):
 
 
 #Prologue
-printOut("This game is a text-based adventure.\n")
+printOut("This game is a comedy text-based adventure, based on the Loss comic. Yep, it's that bad.\n")
 time.sleep(2)
-printOut("Your actions actually have consequences.\n")
+printOut("Your actions actually do have consequences.\n")
 time.sleep(2)
-printOut("To pick options, type the word. Ignore parantheses.\n")
+printOut("To pick options, type the word. Ignore parentheses.\n")
 time.sleep(2)
 
 
